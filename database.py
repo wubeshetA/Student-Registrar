@@ -18,11 +18,15 @@ SELECT_ALL = """ SELECT * FROM student """
 
 # Create a new database if the database doesn't already exist
 def create_database(db_name):
-    conn = sqlite3.connect(db_name)
-    c = conn.cursor()
-    c.execute(CREATE_TABLE)
-    conn.commit()
-    conn.close()
+    try:
+        conn = sqlite3.connect(db_name)
+        c = conn.cursor()
+        c.execute(CREATE_TABLE)
+        conn.commit()
+    except:
+        print("Can't add add New Student")
+    finally:
+        conn.close()
 
 # add student to database
 def add_student(db_name, student):

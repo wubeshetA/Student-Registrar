@@ -1,3 +1,4 @@
+import sys
 import database
 from database import create_database, db_name
 
@@ -57,17 +58,14 @@ def addStudent():
     new_student = Student(id, firstName, middleName, lastName, gender, age, email, phone, nationality, degree)
 
     # excute database operation
-    try:
-        database.add_student(db_name, new_student)
-        print("New student has been added successfully!")
-        response = input("Do you want do Another operation? yes/no")
-        if response.lower() == "yes":
-            mainMenu()
-        else:
-            exit()
-    except:
-        print ("Can't add new student")
-        
+    
+    database.add_student(db_name, new_student)
+    print("New student has been added successfully!")
+    response = input("Do you want do Another operation? yes/no")
+    if response.lower() == "yes":
+        mainMenu()
+    else:
+        exit()   
 
 def updateStudent():
     pass
