@@ -89,7 +89,7 @@ def getAllStudents():
     # get all students from the database
     # iterate through the students and display all the students info as follow
     print("Here are the details of the students: ")
-    print(" ID  | First Name | Middle Name | Gender | Age | Email Address  | Phone No. | Nationality | Degree  ")
+    print(" ID  | First Name | Last Name | Middle Name | Gender | Age | Email Address  | Phone No. | Nationality | Degree  ")
     database.get_students()
     response = input("Do you want do Another operation? yes/no: ")
     if response.lower() == "yes":
