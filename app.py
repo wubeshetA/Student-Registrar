@@ -31,17 +31,18 @@ class Student():
 
     def __str__(self):
         student = """
-        Student Name: {} {} {}
+        ============================{} {}===============================
+        Full Name: {} {} {}
         Gender: {}
         Age: {}
         Contact: {} / {} 
         Nationality: {}
         Degree: {}
-        """.format(self.firstName, self.middleName, self.lastName,
+        """.format(self.firstName, self.lastName, self.firstName, self.middleName, self.lastName,
                     self.gender,
                     self.age, 
                     self.email,self.phone, 
-                    self.Nationality, self.degree)
+                    self.nationality, self.degree)
         
         return student
 
@@ -78,7 +79,6 @@ def addStudent():
 def updateStudent():
     pass
 def getStudent():
-    """get student by id"""
     pass
 def deleteStudent():
     """delete student by it's id"""
