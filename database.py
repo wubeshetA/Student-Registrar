@@ -24,7 +24,7 @@ def create_database(db_name):
         c.execute(CREATE_TABLE)
         conn.commit()
     except:
-        print("Can't add add New Student")
+        print("Can't add New Student")
     finally:
         conn.close()
 
@@ -32,7 +32,9 @@ def create_database(db_name):
 def add_student(db_name, student):
     conn = sqlite3.connect(db_name)
     c = conn.cursor()
-    c.execute(INSERT_STUDENT, (student.id, student.firstName, student.middleName, student.lastName, student.gender, student.age, student.email, student.phone, student.nationality, student.degree))
+    c.execute(INSERT_STUDENT, (student.id, student.firstName,
+    student.middleName, student.lastName, student.gender, student.age,
+    student.email, student.phone, student.nationality, student.degree))
     conn.commit()
     conn.close()
 
@@ -45,7 +47,6 @@ def getStudent(db_name, id):
 def getAllStudent(db_name):
     pass
 
-# update student in database given by id
 def updateStudent(db_name, id):
     pass
 
