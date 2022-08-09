@@ -70,20 +70,32 @@ def addStudent():
     
     database.add_student(db_name, new_student)
     print("New student has been added successfully!")
-    response = input("Do you want do Another operation? yes/no")
+    response = input("Do you want do Another operation? yes/no")   
     if response.lower() == "yes":
         mainMenu()
     else:
         exit()   
 
 def updateStudent():
-    pass
+    id = input("Enter student id: ")
+    new_data = {
+        "firstName": input("Enter new first name: "),
+        "middleName": input("Enter new middle name: "),
+        "lastName": input("Enter new last name: "),
+        "gender": input("Enter new gender: "),
+        "age": int(input("Enter new age: ")),
+        "email": input("Enter new email: "),
+        "phone": input("Enter new phone number: "),
+        "nationality": input("Enter new nationality: "),
+        "degree": input("Enter new degree: "),
+    }
+    database.updateStudent(db_name, id, new_data)
 def getStudent():
     pass
 def deleteStudent():
     """delete student by it's id"""
     pass
-def getAllStudents():
+defgetAllStudents():
     """get all students"""
     # get all students from the database
     # iterate through the students and display all the students info as follow

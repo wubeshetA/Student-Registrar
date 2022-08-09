@@ -47,8 +47,12 @@ def getStudent(db_name, id):
 def getAllStudent(db_name):
     pass
 
-def updateStudent(db_name, id):
-    pass
+def updateStudent(db_name, id, data):
+    conn = sqlite3.connect(db_name)
+    c = conn.cursor()
+    c.execute(UPDATE_STUDENT, (data['firstName'], data['middleName'], data['lastName'], data['gender'], data['age'], data['email'], data['phone'], data['nationality'], data['degree'], id))
+    conn.commit()
+    conn.close()
 
 # delete student from database by id
 def deleteStudent(db_name, id):
