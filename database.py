@@ -44,8 +44,15 @@ def getStudent(db_name, id):
     pass
 
 # get all students
-def getAllStudent(db_name):
-    pass
+def get_students():
+    conn = sqlite3.connect(db_name)
+    c = conn.cursor()
+    c.execute("SELECT * FROM student")
+    rows = c.fetchall()
+    # conn.close()
+    # return rows
+    for row in rows:
+        print(row)
 
 def updateStudent(db_name, id):
     pass
