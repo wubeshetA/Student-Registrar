@@ -41,7 +41,12 @@ def add_student(db_name, student):
 
 # get student by id
 def getStudent(db_name, id):
-    pass
+    conn = sqlite3.connect(db_name)
+    c = conn.cursor()
+    c.execute(SELECT_STUDENT, (id,))
+    result = c.fetchone()
+    conn.close
+    return result
 
 # get all students
 def getAllStudent(db_name):

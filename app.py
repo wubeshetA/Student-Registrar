@@ -79,7 +79,21 @@ def addStudent():
 def updateStudent():
     pass
 def getStudent():
-    pass
+    """get student by id"""
+    id = input("Enter student id: ")
+    # get all the info for a student info from the database by it's id
+    student_info = database.getStudent(db_name, id)
+    # create a new student object with the data above
+    student = Student(student_info[1], student_info[2], student_info[3],
+    student_info[4], student_info[5], student_info[6], student_info[7],
+    student_info[8], student_info[9])
+    print(student)
+    # print the student.
+    response = input("Do you want do Another operation? yes/no")
+    if response.lower() == "yes":
+        mainMenu()
+    else:
+        exit()
 def deleteStudent():
     """delete student by it's id"""
     pass
