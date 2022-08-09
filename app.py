@@ -95,7 +95,7 @@ def getStudent():
 def deleteStudent():
     """delete student by it's id"""
     pass
-defgetAllStudents():
+def getAllStudents():
     """get all students"""
     # get all students from the database
     # iterate through the students and display all the students info as follow
