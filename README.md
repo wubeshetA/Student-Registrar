@@ -9,4 +9,8 @@ Install Python 3.7.3 or later from [here](https://www.python.org/downloads/).\
 This application does not require any external python package/module.
 
 ## Authors
-Project setup by [Wubeshet Yimam](https://github.com/wubeshetA)
+- [Wubeshet Yimam](https://github.com/wubeshetA)
+- [Cumi Oyemike](https://github.com/CtripleU)
+- [Joshua Bizima](https://github.com/jbizima)
+- [Erjok Mach](https://github.com/Erjok2022)
+- [Kagontle Booysen](https://github.com/KagontleBooysen)
