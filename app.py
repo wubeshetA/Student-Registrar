@@ -108,6 +108,8 @@ def getStudent():
         exit()
 def deleteStudent():
     """delete student by it's id"""
+    pass
+
     id = input("Enter student id: ")
     # get student name by it's id and store it in studentName variable
     student = database.getStudent(db_name, id)
@@ -128,19 +130,28 @@ def deleteStudent():
         else:
             print("Deletion canceled!")
             exit()
+
+
 def getAllStudents():
     """get all students"""
     # get all students from the database
     # iterate through the students and display all the students info as follow
-    """
-    Number   ID        Full Name                E-mail              Major
-    1.      4534    John Smith        j.smith@gmail.com      Software Eng.
-    2.      2345    Chris George      c.george@gmail.com     Electrical Eng.
-    3.      3469    Kevin Bob         k.bob@gmail.com         CS
-    .
-    .
-    .
-    """
+    print("Here are the details of the students: ")
+    all_students = database.get_students()
+    print("\n=================================== ALL STUDENTS ===================================")
+    header = "ID\tFull Name\t\tE-mail\t\t\t\tMajor"
+    print(header)
+    print("--\t---------\t\t------\t\t\t\t-----")
+    for student in all_students:
+        student_info = f"{student[0]}\t{student[1]} {student[2]}\t\t"\
+            f"{student[6]}\t\t{student[9]}"
+    print(student_info)
+    response = input("Do you want do Another operation? yes/no: ")
+    if response.lower() == "yes":
+        mainMenu()
+    else:
+        exit() 
+
 
 def choices():
     print("1. Add a new student")

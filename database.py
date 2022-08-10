@@ -49,8 +49,12 @@ def getStudent(db_name, id):
     return result
 
 # get all students
-def getAllStudent(db_name):
-    pass
+def get_students():
+    conn = sqlite3.connect(db_name)
+    c = conn.cursor()
+    c.execute(SELECT_ALL)
+    result = c.fetchall()
+    return result
 
 def updateStudent(db_name, id, data):
     conn = sqlite3.connect(db_name)
