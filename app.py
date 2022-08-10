@@ -138,10 +138,10 @@ def getAllStudents():
     # iterate through the students and display all the students info as follow
     print("Here are the details of the students: ")
     all_students = database.get_students()
-    print("\n=========================ALL STUDENTS=========================")
-    header = "ID\tFull Name\t\tE-mail\t\tMajor"
+    print("\n=========================ALL STUDENTS==============================================")
+    header = "ID\tFull Name\t\tE-mail\t\t\t\tMajor"
     print(header)
-    print("--\t---------\t\t------\t\t-----")
+    print("--\t---------\t\t------\t\t\t\t-----")
     for student in all_students:
         student_info = f"{student[0]}\t{student[1]} {student[2]}\t\t"\
             f"{student[6]}\t\t{student[9]}"
