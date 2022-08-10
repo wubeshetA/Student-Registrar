@@ -59,7 +59,12 @@ def updateStudent(db_name, id, data):
     conn.commit()
     conn.close()
 
-# delete student from database by id
 def deleteStudent(db_name, id):
-    pass
+    conn = sqlite3.connect(db_name)
+    c = conn.cursor()
+    c.execute(DELETE_STUDENT, (id,))
+    conn.commit()
+    # result = c.fetchone()
+    # print(result)
+    conn.close()
 
