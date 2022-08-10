@@ -49,10 +49,7 @@ def get_students():
     c = conn.cursor()
     c.execute(SELECT_ALL)
     result = c.fetchall()
-    # conn.close()
     return result
-    # for row in rows:
-    #     print(row)
 
 def updateStudent(db_name, id):
     pass
