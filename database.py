@@ -47,7 +47,7 @@ def getStudent(db_name, id):
 def get_students():
     conn = sqlite3.connect(db_name)
     c = conn.cursor()
-    c.execute("SELECT * FROM student")
+    c.execute(SELECT_ALL)
     rows = c.fetchall()
     # conn.close()
     # return rows
