@@ -108,7 +108,26 @@ def getStudent():
         exit()
 def deleteStudent():
     """delete student by it's id"""
-    pass
+    id = input("Enter student id: ")
+    # get student name by it's id and store it in studentName variable
+    student = database.getStudent(db_name, id)
+    if student is None:
+        print("There is no student with such id")
+        response = input("Do you want do Another operation? yes/no")
+        if response.lower() == "yes" or response.lower == "y":
+            mainMenu()
+    else:
+        studentName = student[1] + " " + student[2]
+        response = input(f"Are you sure you want remove '{studentName}' "\
+        "permanently? (yes/no) ")
+        # if respose is yes proceed to deletion
+        if response.lower() == "yes":
+            database.deleteStudent(db_name, id)
+            print(f"Student {studentName} has been deleted successfully")
+            
+        else:
+            print("Deletion canceled!")
+            exit()
 def getAllStudents():
     """get all students"""
     # get all students from the database
