@@ -48,11 +48,11 @@ def get_students():
     conn = sqlite3.connect(db_name)
     c = conn.cursor()
     c.execute(SELECT_ALL)
-    rows = c.fetchall()
+    result = c.fetchall()
     # conn.close()
-    # return rows
-    for row in rows:
-        print(row)
+    return result
+    # for row in rows:
+    #     print(row)
 
 def updateStudent(db_name, id):
     pass
