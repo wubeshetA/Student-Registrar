@@ -41,7 +41,12 @@ def add_student(db_name, student):
 
 # get student by id
 def getStudent(db_name, id):
-    pass
+    conn = sqlite3.connect(db_name)
+    c = conn.cursor()
+    c.execute(SELECT_STUDENT, (id,))
+    result = c.fetchone()
+    conn.close
+    return result
 
 # get all students
 def get_students():
@@ -51,10 +56,19 @@ def get_students():
     result = c.fetchall()
     return result
 
-def updateStudent(db_name, id):
-    pass
+def updateStudent(db_name, id, data):
+    conn = sqlite3.connect(db_name)
+    c = conn.cursor()
+    c.execute(UPDATE_STUDENT, (data['firstName'], data['middleName'], data['lastName'], data['gender'], data['age'], data['email'], data['phone'], data['nationality'], data['degree'], id))
+    conn.commit()
+    conn.close()
 
-# delete student from database by id
 def deleteStudent(db_name, id):
-    pass
+    conn = sqlite3.connect(db_name)
+    c = conn.cursor()
+    c.execute(DELETE_STUDENT, (id,))
+    conn.commit()
+    # result = c.fetchone()
+    # print(result)
+    conn.close()
 
