@@ -98,8 +98,6 @@ def getAllStudents():
         student_info = f"{student[0]}\t{student[1]} {student[2]}\t\t"\
             f"{student[6]}\t\t{student[9]}"
     print(student_info)
-
-    
     response = input("Do you want do Another operation? yes/no: ")
     if response.lower() == "yes":
         mainMenu()
