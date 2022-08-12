@@ -18,8 +18,8 @@ VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?) """
 SELECT_STUDENT = """ SELECT * FROM student WHERE id = ? """
 
 UPDATE_STUDENT = """ UPDATE student SET first_name = ?, middle_name = ?,
-last_name = ?, gender = ?, age = ? email = ?, mobile = ?,
-Nationality = WHERE id = ? """
+last_name = ?, gender = ?, age = ?, email = ?, mobile = ?,
+nationality = ?, degree = ? WHERE id = ? """
 
 DELETE_STUDENT = """ DELETE FROM student WHERE id = ? """
 
