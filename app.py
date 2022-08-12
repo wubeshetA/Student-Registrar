@@ -90,6 +90,13 @@ def updateStudent():
         "degree": input("Enter new degree: "),
     }
     database.updateStudent(db_name, id, new_data)
+    print("Student updated successfully!\n")
+    response = input("Do you want do Another operation? yes/no")
+    if response.lower() == "yes":
+        mainMenu()
+    else:
+        exit()
+
 
 
 def getStudent():
