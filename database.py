@@ -62,6 +62,7 @@ def getStudent(db_name, id):
     conn.close
     return result
 
+
 # get all students
 def get_students():
     conn = sqlite3.connect(db_name)

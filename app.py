@@ -4,53 +4,18 @@ and interact with the end user."""
 import database
 from database import create_database, db_name
 import random
+from student import Student
 
 
 def generateId(student):
     """Generates a unique id number for a student from a combination
-    of the first name initial and a random number in the following format
-    ID Format:"""
+    of the first name initial and a random number."""
     id = student.firstName[0] + str(random.randint(1000, 9999))
     return id
 
 
-class Student():
-    """Student class"""
-
-    def __init__(self, firstName, middleName,
-                 lastName, gender, age, email, phone, nationality, degree):
-
-        self.id = None
-        self.firstName = firstName
-        self.middleName = middleName
-        self.lastName = lastName
-        self.gender = gender
-        self.age = age
-        self.email = email
-        self.phone = phone
-        self.nationality = nationality
-        self.degree = degree
-
-    def __str__(self):
-        student = """
-        ============================ {} {} ===============================\n
-                            Full Name: {} {} {}
-                            Gender: {}
-                            Age: {}
-                            Contact: {} / {}
-                            Nationality: {}
-                            Degree: {}
-        """.format(str(self.firstName).upper(), str(self.lastName).upper(),
-                   self.firstName, self.middleName, self.lastName,
-                   self.gender,
-                   self.age,
-                   self.email, self.phone,
-                   self.nationality, self.degree)
-
-        return student
-
-
 def addStudent():
+    """Add Student information to the database"""
 
     firstName = input("Enter first name: ")
     middleName = input("Enter middle name: ")
@@ -69,7 +34,7 @@ def addStudent():
 
     database.add_student(db_name, new_student)
     print("New student has been added successfully!")
-    response = input("Do you want do Another operation? yes/no")
+    response = input("Do you want do Another operation? (yes/no) ")
     if response.lower() == "yes":
         mainMenu()
     else:
@@ -103,7 +68,7 @@ def getStudent():
                       student_info[7], student_info[8], student_info[9])
     print(student)
     # print the student.
-    response = input("Do you want do Another operation? yes/no")
+    response = input("Do you want do Another operation? (yes/no) ")
     if response.lower() == "yes":
         mainMenu()
     else:
@@ -119,7 +84,7 @@ def deleteStudent():
     student = database.getStudent(db_name, id)
     if student is None:
         print("There is no student with such id")
-        response = input("Do you want do Another operation? yes/no")
+        response = input("Do you want do Another operation? (yes/no) ")
         if response.lower() == "yes" or response.lower == "y":
             mainMenu()
     else:
@@ -150,7 +115,7 @@ def getAllStudents():
         student_info = f"{student[0]}\t{student[1]} {student[2]}\t\t"\
             f"{student[6]}\t\t{student[9]}"
     print(student_info)
-    response = input("Do you want do Another operation? yes/no: ")
+    response = input("Do you want do Another operation? (yes/no) ")
     if response.lower() == "yes":
         mainMenu()
     else:
@@ -191,7 +156,7 @@ def mainMenu():
         exit()
     else:
         print("Invalid choice")
-        response = input("Do you still want to continue? yes/no")
+        response = input("Do you want do Another operation? (yes/no) ")
         if response.lower() == "yes":
             mainMenu()
         else:
