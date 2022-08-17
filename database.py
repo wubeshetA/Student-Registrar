@@ -28,6 +28,7 @@ SELECT_ALL = """ SELECT * FROM student """
 
 # Create a new database if the database doesn't already exist
 def create_database(db_name):
+    """Create a new database if it doesn't exist"""
     try:
         connection = sqlite3.connect(db_name)
         cursor = connection.cursor()
@@ -42,19 +43,21 @@ def create_database(db_name):
 
 
 def add_student(db_name, student):
+    """Add student information to the database"""
     connection = sqlite3.connect(db_name)
     cursor = connection.cursor()
     cursor.execute(INSERT_STUDENT, (student.id, student.firstName,
-                               student.middleName, student.lastName,
-                               student.gender, student.age, student.email,
-                               student.phone, student.nationality,
-                               student.degree))
+                                    student.middleName, student.lastName,
+                                    student.gender, student.age, student.email,
+                                    student.phone, student.nationality,
+                                    student.degree))
     connection.commit()
     connection.close()
 
 
 # get student by id
 def getStudent(db_name, id):
+    """Get student information by id from the database"""
     connection = sqlite3.connect(db_name)
     cursor = connection.cursor()
     cursor.execute(SELECT_STUDENT, (id,))
@@ -65,6 +68,7 @@ def getStudent(db_name, id):
 
 # get all students
 def get_students():
+    """Get all student"""
     connection = sqlite3.connect(db_name)
     cursor = connection.cursor()
     cursor.execute(SELECT_ALL)
@@ -73,18 +77,20 @@ def get_students():
 
 
 def updateStudent(db_name, id, data):
+    """Update student information with new information provided"""
     connection = sqlite3.connect(db_name)
     cursor = connection.cursor()
     cursor.execute(UPDATE_STUDENT, (data['firstName'], data['middleName'],
-                               data['lastName'], data['gender'],
-                               data['age'], data['email'],
-                               data['phone'], data['nationality'],
-                               data['degree'], id))
+                                    data['lastName'], data['gender'],
+                                    data['age'], data['email'],
+                                    data['phone'], data['nationality'],
+                                    data['degree'], id))
     connection.commit()
     connection.close()
 
 
 def deleteStudent(db_name, id):
+    """Delete student from the database"""
     connection = sqlite3.connect(db_name)
     cursor = connection.cursor()
     cursor.execute(DELETE_STUDENT, (id,))

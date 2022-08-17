@@ -1,5 +1,6 @@
-"""A menu driven applicatino that receive data retrieved by database module
-and interact with the end user."""
+"""A menu driven application that receive data retrieved by database module
+and interact with the end user to register and access student information
+"""
 
 import database
 from database import create_database, db_name
@@ -61,7 +62,6 @@ def updateStudent():
         mainMenu()
     else:
         exit()
-
 
 
 def getStudent():
