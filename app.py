@@ -15,7 +15,7 @@ def generateId(student):
     return id
 
 
-def addStudent():
+def add_student():
     """Add Student information to the database"""
 
     firstName = input("Enter first name: ")
@@ -42,7 +42,7 @@ def addStudent():
         exit()
 
 
-def updateStudent():
+def update_student():
     id = input("Enter student id: ")
     new_data = {
         "firstName": input("Enter new first name: "),
@@ -55,7 +55,7 @@ def updateStudent():
         "nationality": input("Enter new nationality: "),
         "degree": input("Enter new degree: "),
     }
-    database.updateStudent(db_name, id, new_data)
+    database.update_student(db_name, id, new_data)
     print("Student updated successfully!\n")
     response = input("Do you want do Another operation? yes/no")
     if response.lower() == "yes":
@@ -64,11 +64,11 @@ def updateStudent():
         exit()
 
 
-def getStudent():
+def get_student():
     """get student by id"""
     id = input("Enter student id: ")
     # get all the info for a student info from the database by it's id
-    student_info = database.getStudent(db_name, id)
+    student_info = database.get_student(db_name, id)
     # create a new student object with the data above
     student = Student(student_info[1], student_info[2], student_info[3],
                       student_info[4], student_info[5], student_info[6],
@@ -82,13 +82,13 @@ def getStudent():
         exit()
 
 
-def deleteStudent():
+def delete_student():
     """delete student by it's id"""
     pass
 
     id = input("Enter student id: ")
     # get student name by it's id and store it in studentName variable
-    student = database.getStudent(db_name, id)
+    student = database.get_student(db_name, id)
     if student is None:
         print("There is no student with such id")
         response = input("Do you want do Another operation? (yes/no) ")
@@ -100,7 +100,7 @@ def deleteStudent():
                          "permanently? (yes/no) ")
         # if respose is yes proceed to deletion
         if response.lower() == "yes":
-            database.deleteStudent(db_name, id)
+            database.delete_student(db_name, id)
             print(f"Student {studentName} has been deleted successfully")
 
         else:
@@ -108,12 +108,12 @@ def deleteStudent():
             exit()
 
 
-def getAllStudents():
+def get_all_student():
     """get all students"""
     # get all students from the database
     # iterate through the students and display all the students info as follow
     print("Here are the details of the students: ")
-    all_students = database.get_students()
+    all_students = database.get_all_students()
     print("\n===================== ALL STUDENTS ============================")
     header = "ID\tFull Name\t\tE-mail\t\t\t\tMajor"
     print(header)
@@ -150,15 +150,15 @@ def mainMenu():
     choice = choices()
 
     if choice == 1:
-        addStudent()
+        add_student()
     elif choice == 2:
-        updateStudent()
+        update_student()
     elif choice == 3:
-        deleteStudent()
+        delete_student()
     elif choice == 4:
-        getStudent()
+        get_student()
     elif choice == 5:
-        getAllStudents()
+        get_all_student()
     elif choice == 6:
         exit()
     else:

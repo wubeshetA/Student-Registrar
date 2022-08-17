@@ -56,7 +56,7 @@ def add_student(db_name, student):
 
 
 # get student by id
-def getStudent(db_name, id):
+def get_student(db_name, id):
     """Get student information by id from the database"""
     connection = sqlite3.connect(db_name)
     cursor = connection.cursor()
@@ -67,7 +67,7 @@ def getStudent(db_name, id):
 
 
 # get all students
-def get_students():
+def get_all_students():
     """Get all student"""
     connection = sqlite3.connect(db_name)
     cursor = connection.cursor()
@@ -76,7 +76,7 @@ def get_students():
     return result
 
 
-def updateStudent(db_name, id, data):
+def update_student(db_name, id, data):
     """Update student information with new information provided"""
     connection = sqlite3.connect(db_name)
     cursor = connection.cursor()
@@ -89,7 +89,7 @@ def updateStudent(db_name, id, data):
     connection.close()
 
 
-def deleteStudent(db_name, id):
+def delete_student(db_name, id):
     """Delete student from the database"""
     connection = sqlite3.connect(db_name)
     cursor = connection.cursor()
