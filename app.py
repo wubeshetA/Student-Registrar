@@ -1,5 +1,5 @@
-"""A menu driven applicatino that receive data retrieved by database module
-and interact with the end user."""
+"""A menu driven CLI application that used to register students information
+to a database and read information from the database."""
 
 import database
 from database import create_database, db_name
@@ -8,8 +8,7 @@ import random
 
 def generateId(student):
     """Generates a unique id number for a student from a combination
-    of the first name initial and a random number in the following format
-    ID Format:"""
+    of the first name initial and a random number."""
     id = student.firstName[0] + str(random.randint(1000, 9999))
     return id
 
@@ -149,7 +148,7 @@ def getAllStudents():
     for student in all_students:
         student_info = f"{student[0]}\t{student[1]} {student[2]}\t\t"\
             f"{student[6]}\t\t{student[9]}"
-    print(student_info)
+        print(student_info)
     response = input("Do you want do Another operation? yes/no: ")
     if response.lower() == "yes":
         mainMenu()
